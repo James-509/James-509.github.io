@@ -1,14 +1,14 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>James Dix — Projects</title>
-<meta name="description" content="A collection of projects by James Dix.">
+<meta name="description" content="James Dix — mathematician, programmer, and machine learning projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #14171c;
@@ -19,279 +19,324 @@
     --accent: #c58f3d;
   }
 
-  * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+html { scroll-behavior: smooth; }
 
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--ink);
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
+}
 
-  a {
-    color: var(--accent);
-    text-decoration: none;
-  }
+a {
+color: var(--accent);
+text-decoration: none;
+}
 
-  a:hover, a:focus-visible {
-    text-decoration: underline;
-  }
+a:hover, a:focus-visible { text-decoration: underline; }
 
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
+a:focus-visible, button:focus-visible {
+outline: 2px solid var(--accent);
+outline-offset: 3px;
+}
 
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+.wrap {
+max-width: 720px;
+margin: 0 auto;
+padding: 0 24px;
+}
 
-  header.hero {
-    padding: 96px 0 72px;
-    border-bottom: 1px solid var(--rule);
-  }
+header.hero {
+padding: 96px 0 72px;
+border-bottom: 1px solid var(--rule);
+}
 
-  .hero h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    line-height: 1.08;
-    margin: 0 0 20px;
-    letter-spacing: -0.01em;
-  }
+.hero h1 {
+font-family: 'Libre Baskerville', serif;
+font-weight: 700;
+font-size: clamp(2.4rem, 6vw, 3.6rem);
+line-height: 1.08;
+margin: 0 0 20px;
+letter-spacing: -0.01em;
+}
 
-  .hero p {
-    max-width: 46ch;
-    color: var(--ink-dim);
-    font-size: 1.08rem;
-    margin: 0 0 28px;
-  }
+.hero p {
+max-width: 46ch;
+color: var(--ink-dim);
+font-size: 1.08rem;
+margin: 0 0 28px;
+}
 
-  .hero-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-size: 0.95rem;
-  }
+.hero-links {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+font-size: 0.95rem;
+}
 
-  main {
-    padding: 64px 0 40px;
-  }
+main { padding: 64px 0 40px; }
 
-  section + section {
-    margin-top: 64px;
-  }
+section + section { margin-top: 64px; }
 
-  h2.section-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-    margin: 0 0 32px;
-  }
+h2.section-title {
+font-family: 'Libre Baskerville', serif;
+font-weight: 700;
+font-size: 1.5rem;
+margin: 0 0 32px;
+}
 
-  .project {
-    padding: 28px 0;
-    border-top: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
+.resume-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 28px 40px;
+}
 
-  .project:last-child {
-    border-bottom: 1px solid var(--rule);
-  }
+.resume-item {
+margin: 0;
+}
 
-  .project-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+.resume-label {
+color: var(--ink);
+font-size: 0.9rem;
+font-weight: 600;
+margin: 0 0 4px;
+}
 
-  .project-title {
-    font-family: 'Fraunces', serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0;
-  }
+.resume-detail {
+color: var(--ink-dim);
+margin: 0;
+font-size: 0.92rem;
+}
 
-  .project-year {
-    color: var(--ink-dim);
-    font-size: 0.88rem;
-    white-space: nowrap;
-  }
+.resume-detail + .resume-detail { margin-top: 4px; }
 
-  .project-desc {
-    color: var(--ink-dim);
-    max-width: 60ch;
-    margin: 0;
-  }
+.resume-list {
+margin: 8px 0 0;
+padding-left: 18px;
+color: var(--ink-dim);
+font-size: 0.92rem;
+}
 
-  .project-figures {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 6px 0 2px;
-  }
+.resume-list li + li { margin-top: 4px; }
 
-  .project-figures figure {
-    margin: 0;
-  }
+.project {
+padding: 28px 0;
+border-top: 1px solid var(--rule);
+display: grid;
+grid-template-columns: 1fr;
+gap: 10px;
+}
 
-  .project-figures img {
-    display: block;
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    background: #fff;
-  }
+.project:last-child { border-bottom: 1px solid var(--rule); }
 
-  .project-figures figcaption {
-    margin-top: 6px;
-    font-size: 0.82rem;
-    color: var(--ink-dim);
-  }
+.project-head {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+gap: 16px;
+flex-wrap: wrap;
+}
 
-  .results-table {
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    margin: 4px 0 2px;
-  }
+.project-title {
+font-family: 'Libre Baskerville', serif;
+font-size: 1.25rem;
+font-weight: 700;
+margin: 0;
+}
 
-  .results-table th,
-  .results-table td {
-    text-align: left;
-    padding: 5px 20px 5px 0;
-    border-bottom: 1px solid var(--rule);
-  }
+.project-year {
+color: var(--ink-dim);
+font-size: 0.88rem;
+white-space: nowrap;
+}
 
-  .results-table th {
-    color: var(--ink-dim);
-    font-weight: 500;
-  }
+.project-desc {
+color: var(--ink-dim);
+max-width: 60ch;
+margin: 0;
+}
 
-  .results-table td:last-child,
-  .results-table th:last-child {
-    font-variant-numeric: tabular-nums;
-    padding-right: 0;
-  }
+.project-figures {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin: 6px 0 2px;
+}
 
-  .project-meta {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-size: 0.9rem;
-    margin-top: 4px;
-  }
+.project-figures figure { margin: 0; }
 
-  .tag {
-    color: var(--ink-dim);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 2px 8px;
-    font-size: 0.82rem;
-  }
+.project-figures img {
+display: block;
+width: 100%;
+max-width: 480px;
+height: auto;
+border: 1px solid var(--rule);
+border-radius: 4px;
+background: #fff;
+}
 
-  footer {
-    padding: 48px 0 80px;
-    border-top: 1px solid var(--rule);
-    color: var(--ink-dim);
-    font-size: 0.92rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+.project-figures figcaption {
+margin-top: 6px;
+font-size: 0.82rem;
+color: var(--ink-dim);
+}
 
-  footer a {
-    color: var(--ink);
-  }
+.results-table {
+border-collapse: collapse;
+font-size: 0.9rem;
+margin: 4px 0 2px;
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
-</style>
+.results-table th,
+.results-table td {
+text-align: left;
+padding: 5px 20px 5px 0;
+border-bottom: 1px solid var(--rule);
+}
+
+.results-table th {
+color: var(--ink-dim);
+font-weight: 500;
+}
+
+.results-table td:last-child,
+.results-table th:last-child {
+font-variant-numeric: tabular-nums;
+padding-right: 0;
+}
+
+.project-meta {
+display: flex;
+gap: 14px;
+flex-wrap: wrap;
+font-size: 0.9rem;
+margin-top: 4px;
+}
+
+.tag {
+color: var(--ink-dim);
+border: 1px solid var(--rule);
+border-radius: 3px;
+padding: 2px 8px;
+font-size: 0.82rem;
+}
+
+footer {
+padding: 48px 0 80px;
+border-top: 1px solid var(--rule);
+color: var(--ink-dim);
+font-size: 0.92rem;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+footer a { color: var(--ink); }
+
+@media (max-width: 600px) {
+.resume-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+} </style>
+
 </head>
 <body>
 
 <div class="wrap">
   <header class="hero">
     <h1>James Dix</h1>
-    <p>I build things with code. Below is a short list of projects I've made — what they do, what they're built with, and where to find them.</p>
+    <p>Mathematician and data scientist with experience in machine learning, statistical analysis, and mathematical research.</p>
     <div class="hero-links">
       <a href="https://github.com/James-509" target="_blank" rel="noopener">GitHub</a>
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
     </div>
   </header>
 
   <main>
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="resume-grid">
+        <div class="resume-item">
+          <p class="resume-label">Education</p>
+          <p class="resume-detail"><strong>PhD in Mathematics</strong> — UC Berkeley, 2024</p>
+          <p class="resume-detail">Dissertation: <em>Ribbon Concordances and Character Varieties</em></p>
+          <p class="resume-detail"><strong>BS in Mathematics and Physics, Honors</strong> — UT Austin, 2017</p>
+        </div>
 
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-title">Hanzi Exploration</h3>
-          <span class="project-year">2026</span>
-        </div>
-        <p class="project-desc">Used convolutional neural nets to predict pronunciations of Chinese characters from their image. As expected, traditional characters proved more fruitful for prediction, since they contain more etymological information. Augmenting the data with slight rotations and scaling also improved performance. Interestingly, there was a statistically significant correlation between correct pinyin prediction (without tone) and tone prediction, but only among traditional characters — again suggesting traditional characters carry more information about pronunciation.</p>
-        <div class="project-figures">
-          <figure>
-            <img src="images/both_acc.png" alt="Validation accuracy over training steps for predicting pinyin and tone together, comparing simplified vs. traditional characters and augmented vs. non-augmented data">
-            <figcaption>Combined pinyin + tone accuracy</figcaption>
-          </figure>
-          <figure>
-            <img src="images/pinyin_acc.png" alt="Validation accuracy over training steps for pinyin prediction, comparing simplified vs. traditional characters and augmented vs. non-augmented data">
-            <figcaption>Pinyin accuracy</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tone_acc.png" alt="Validation accuracy over training steps for tone prediction, comparing simplified vs. traditional characters and augmented vs. non-augmented data">
-            <figcaption>Tone accuracy</figcaption>
-          </figure>
-        </div>
-        <div class="project-meta">
-          <span class="tag">Python</span>
-          <span class="tag">PyTorch</span>
-          <a href="https://github.com/James-509/Language" target="_blank" rel="noopener">Code</a>
-        </div>
-      </div>
+```
+    <div class="resume-item">
+      <p class="resume-label">Interests</p>
+      <p class="resume-detail">In my free time, I enjoy studying Chinese and reading history books.</p>
+    </div>
+  </div>
+</section>
 
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-title">MNIST Digit Classification</h3>
-          <span class="project-year">2025</span>
-        </div>
-        <p class="project-desc">Compared five approaches to classifying handwritten digits from the MNIST dataset: Linear Discriminant Analysis, Quadratic Discriminant Analysis, SVM, SVM with an Earth Mover's Distance kernel, and a convolutional neural net.</p>
-        <table class="results-table">
-          <thead>
-            <tr><th>Method</th><th>Accuracy</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Neural net (CNN)</td><td>0.9906</td></tr>
-            <tr><td>SVM-EMD</td><td>0.9620</td></tr>
-            <tr><td>SVM</td><td>0.9573</td></tr>
-            <tr><td>QDA</td><td>0.9429</td></tr>
-            <tr><td>LDA</td><td>0.8730</td></tr>
-          </tbody>
-        </table>
-        <div class="project-meta">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">PyTorch</span>
-          <a href="https://github.com/James-509/Mnist" target="_blank" rel="noopener">Code</a>
-        </div>
-      </div>
-    </section>
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="project">
+    <div class="project-head">
+      <h3 class="project-title">Hanzi Exploration</h3>
+      <span class="project-year">2026</span>
+    </div>
+    <p class="project-desc">Used convolutional neural nets to predict pronunciations of Chinese characters from their image. As expected, traditional characters proved more fruitful for prediction, since they contain more etymological information. Augmenting the data with slight rotations and scaling also improved performance. Interestingly, there was a statistically significant correlation between correct pinyin prediction (without tone) and tone prediction, but only among traditional characters — again suggesting traditional characters carry more information about pronunciation.</p>
+    <div class="project-figures">
+      <figure>
+        <img src="images/both_acc.png" alt="Validation accuracy over training steps for predicting pinyin and tone together, comparing simplified vs. traditional characters and augmented vs. non-augmented data">
+        <figcaption>Combined pinyin + tone accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="images/pinyin_acc.png" alt="Validation accuracy over training steps for pinyin prediction, comparing simplified vs. traditional characters and augmented vs. non-augmented data">
+        <figcaption>Pinyin accuracy</figcaption>
+      </figure>
+      <figure>
+        <img src="images/tone_acc.png" alt="Validation accuracy over training steps for tone prediction, comparing simplified vs. traditional characters and augmented vs. non-augmented data">
+        <figcaption>Tone accuracy</figcaption>
+      </figure>
+    </div>
+    <div class="project-meta">
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <a href="https://github.com/James-509/Language" target="_blank" rel="noopener">Code</a>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <h3 class="project-title">MNIST Digit Classification</h3>
+      <span class="project-year">2025</span>
+    </div>
+    <p class="project-desc">Compared five approaches to classifying handwritten digits from the MNIST dataset: Linear Discriminant Analysis, Quadratic Discriminant Analysis, SVM, SVM with an Earth Mover's Distance kernel, and a convolutional neural net.</p>
+    <table class="results-table">
+      <thead>
+        <tr><th>Method</th><th>Accuracy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Neural net (CNN)</td><td>0.9906</td></tr>
+        <tr><td>SVM-EMD</td><td>0.9620</td></tr>
+        <tr><td>SVM</td><td>0.9573</td></tr>
+        <tr><td>QDA</td><td>0.9429</td></tr>
+        <tr><td>LDA</td><td>0.8730</td></tr>
+      </tbody>
+    </table>
+    <div class="project-meta">
+      <span class="tag">Python</span>
+      <span class="tag">scikit-learn</span>
+      <span class="tag">PyTorch</span>
+      <a href="https://github.com/James-509/Mnist" target="_blank" rel="noopener">Code</a>
+    </div>
+  </div>
+</section>
+```
+
   </main>
 
   <footer>
@@ -302,4 +347,3 @@
 
 </body>
 </html>
-```
